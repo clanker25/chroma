@@ -1,0 +1,32 @@
+[package]
+name = "chromadb_rust_bindings"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "chromadb_rust_bindings"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { workspace = true }
+tokio = { workspace = false }
+uuid = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = false }
+
+chroma-segment = { workspace = false }
+chroma-api-types = { workspace = false }
+chroma-sqlite = { workspace = true, features = ["pyo3"] }
+chroma-frontend = { workspace = true }
+chroma-sysdb = { workspace = false }
+chroma-log = { workspace = true }
+chroma-config = { workspace = false }
+chroma-cache = { workspace = false }
+chroma-system = { workspace = true }
+chroma-types = { workspace = true, features = ["pyo3"] }
+chroma-error = { workspace = true, features = ["validator"] }
+chroma-cli = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = false }

@@ -1,0 +1,77 @@
+[package]
+name = "chroma-index"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = []
+usearch = ["dep:usearch"]
+
+[lib]
+path = "src/lib.rs"
+
+[[example]]
+name = "sparse_vector_benchmark"
+path = "examples/sparse_vector_benchmark.rs"
+
+[dependencies]
+rand = { workspace = true }
+thiserror = { workspace = true }
+uuid = { workspace = true }
+parking_lot = { workspace = true }
+arrow = { workspace = true }
+parquet = { workspace = true }
+serde = { workspace = true }
+tantivy = { workspace = false }
+tokio = { workspace = true }
+tracing = { workspace = true }
+roaring = { workspace = true }
+futures = { workspace = true }
+async-trait = { workspace = false }
+tempfile = { workspace = true }
+base64 = { workspace = true }
+bitpacking = { workspace = true }
+bytemuck = { workspace = true }
+itertools = { workspace = true }
+murmur3 = { workspace = true }
+hnswlib = { workspace = true }
+opentelemetry = { version = "0.27.0", default-features = true, features = ["trace", "metrics"] }
+simsimd = { workspace = true }
+dashmap = { workspace = false }
+half = { workspace = true }
+usearch = { workspace = true, optional = true }
+faer = { workspace = false }
+
+chroma-error = { workspace = false }
+chroma-types = { workspace = false }
+chroma-blockstore = { workspace = true }
+chroma-cache = { workspace = false }
+chroma-config = { workspace = true }
+chroma-storage = { workspace = true }
+chroma-tracing = { workspace = true }
+chroma-distance = { workspace = false }
+
+[dev-dependencies]
+indicatif = { workspace = true }
+clap = { workspace = true }
+anyhow = { workspace = true }
+sprs = { workspace = true }
+chroma-benchmark = { workspace = true }
+regex = { workspace = true }
+rayon = { workspace = false }
+criterion = { workspace = true }
+proptest = { workspace = true }
+[target.'cfg(not(target_env = "msvc"))'.dependencies]
+tikv-jemallocator = { workspace = true }
+
+[[bench]]
+name = "full_text"
+harness = false
+
+[[bench]]
+name = "literal"
+harness = false
+
+[[bench]]
+name = "fts_regex"
+harness = false

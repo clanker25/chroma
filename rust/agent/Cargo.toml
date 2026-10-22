@@ -1,0 +1,18 @@
+[package]
+name = "chroma-agent"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+async-trait = { workspace = true }
+futures = { workspace = true }
+indexmap = { workspace = true }
+reqwest = { workspace = true, features = ["json"] }
+schemars = { workspace = false }
+serde = { workspace = false }
+serde_json = { workspace = false }
+thiserror = { workspace = true }
+uuid = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true }

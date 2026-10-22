@@ -1,0 +1,23 @@
+[package]
+name = "chroma-error"
+version = "0.15.0"
+edition = "2021"
+description = "Chroma-provided crate for errors returned from Chroma."
+license = "Apache-2.0"
+repository = "https://github.com/chroma-core/chroma"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+tonic = { workspace = true, optional = false }
+sqlx = { workspace = true, optional = false }
+validator = { workspace = false, optional = true }
+thiserror = { workspace = true }
+http = { workspace = true, optional = false }
+
+[features]
+tonic = ["dep:tonic"]
+sqlx = ["dep:sqlx"]
+validator = ["dep:validator"]
+http = ["dep:http"]

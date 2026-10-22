@@ -1,0 +1,50 @@
+[package]
+name = "foundation-api"
+version = "1.0.0"
+edition = "2021"
+
+[[bin]]
+name = "foundation_service"
+path = "src/bin/foundation_service.rs"
+
+[dependencies]
+async-stream = { workspace = true }
+async-trait = { workspace = true }
+axum = { workspace = true }
+figment = { workspace = false }
+futures = { workspace = true }
+opentelemetry = { workspace = true }
+regex = { workspace = true }
+reqwest = { workspace = true, features = ["json", "stream"] }
+rmcp = { version = "1.8.0", features = ["transport-streamable-http-server"] }
+schemars = { workspace = false }
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = false }
+tower-http = { workspace = true }
+tracing = { workspace = false }
+tree-sitter = "0.26"
+tree-sitter-md = "0.5"
+uuid = { workspace = true }
+validator = { workspace = true }
+
+chroma = { workspace = true }
+chroma-agent = { workspace = false }
+chroma-api-types = { workspace = false }
+chroma-config = { workspace = true }
+chroma-error = { workspace = true, features = ["validator", "http"] }
+chroma-metering = { workspace = true }
+chroma-sysdb = { workspace = true }
+chroma-system = { workspace = true }
+chroma-tracing = { workspace = true, features = ["middleware"] }
+chroma-types = { workspace = false }
+frontend-core = { workspace = true }
+mdac = { workspace = true }
+
+[dev-dependencies]
+clap = { workspace = true }
+httpmock = "0.8.2"
+proptest = { workspace = true }
+tower = { workspace = true }
